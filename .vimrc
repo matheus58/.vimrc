@@ -61,9 +61,7 @@ let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
+imap <C-j> <Plug> <leader>(coc-convert-snippet)
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
 inoremap <silent><expr> <TAB>
@@ -167,12 +165,17 @@ filetype plugin on   " Carrega o arquivo de plug-in para o tipo de arquivo, se h
 filetype indent on   " Carrega o arquivo de indentação para o tipo de arquivo, se houver
 let mapleader = "q"  "tecla lider
 
+:set makeprg=gcc\ -Wall\ -o\ %<\ %
+
+
 
 " atalhos """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap  <leader>p :PlugInstall<CR><Esc>
-nmap <leader>e :CocCommand explorer <CR>
+nnoremap  <leader>p :PlugInstall<CR><Esc>
+nnoremap <leader>e :CocCommand explorer <CR>
+nnoremap <leader>w :w<CR>
+nnoremap <C-q> :q<CR>
 " nerd_tree""""""""
-nmap <C-a> :NERDTreeToggle<CR>
+nnoremap <C-a> :NERDTreeToggle<CR>
 
 "nnoremap <leader>n :NERDTreeFocus<CR>:  define <leader>n como atalho para mover o foco para o painel do NERDTree.
 "nnoremap <C-n> :NERDTree<CR>: define <C-n>  como atalho para abrir o painel do NERDTree.
@@ -212,6 +215,12 @@ nmap tt :q<CR>
 
 " ajilizar chamadas de comando no terminal
 nmap tc :!
+"navegasoa entre os split"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 
 "auto_cmd"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! HighlightWordUnderCursor()
